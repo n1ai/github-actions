@@ -15,7 +15,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - name: List files in the repository recursively
+      - name: List git files in the repository recursively
         run: |
-          ls -a ${{ github.workspace }}
+          find ${{ github.workspace }}/.git* -type f | sort
       - run: echo "🍏 This job's status is ${{ job.status }}."
