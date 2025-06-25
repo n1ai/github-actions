@@ -18,4 +18,10 @@ jobs:
       - name: List git files in the repository recursively
         run: |
           find ${{ github.workspace }}/.git* -type f | sort
+      - name: List disk capacity
+        run: |
+          df -h
+      - name: List block devices
+        run: |
+          lsblk     
       - run: echo "🍏 This job's status is ${{ job.status }}."
