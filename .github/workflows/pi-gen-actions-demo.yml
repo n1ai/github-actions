@@ -13,7 +13,7 @@ jobs:
           echo "Free space:"
           df -h | grep -v tmpfs
       - name: Build using pi-gen-action
-      - uses: usimd/pi-gen-action@v1
+        uses: usimd/pi-gen-action@v1
         with:
           compression: xz
           disable-first-boot-user-rename: 1
