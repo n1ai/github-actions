@@ -25,7 +25,7 @@ jobs:
       - name: Free space after maximization
         run: |
           echo "Free space:"
-          df -h: | grep -v tmpfs
+          df -h | grep -v tmpfs
       - name: Check out repository code
         uses: actions/checkout@v4
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
