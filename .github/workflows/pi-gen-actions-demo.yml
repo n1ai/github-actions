@@ -25,7 +25,7 @@ jobs:
           keyboard-keymap: us
           keyboard-layout: English (US)
           locale: en_US.UTF-8
-          timezone: America/New York
+          timezone: US/Eastern
           username: pi
           password: 'pi'
           pi-gen-release: Pi-Gen Actions Release
