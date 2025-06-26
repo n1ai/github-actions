@@ -63,7 +63,7 @@ jobs:
           echo "Deploy area:" ${{ inputs.pi-gen-dir }}/deploy
           ls -lR ${{ inputs.pi-gen-dir }}/deploy
       - name: Upload deploy area as artifact
-      - uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
           path: ${{ inputs.pi-gen-dir }}/deploy
           if-no-files-found: error
