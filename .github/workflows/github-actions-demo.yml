@@ -27,9 +27,11 @@ jobs:
       - name: List disk capacity
         run: |
           df -h
-      - name: List files on /mnt
+      - name: Show files on /mnt
         run: |
-          find /mnt -type f | sort
+          ls -l /mnt
+          cat /mnt/DATALOSS_WARNING_README.txt
+          mkdir /mnt/dfc
       - name: Create large file in the work space
         run: |
           dd if=/dev/zero of=${{ github.workspace }}/junkfile bs=1G count=24
