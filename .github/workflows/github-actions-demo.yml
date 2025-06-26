@@ -33,9 +33,9 @@ jobs:
       - name: Create large file in the work space
         run: |
           dd if=/dev/zero of=${{ github.workspace }}/junkfile bs=1G count=24
-          df -h $ {{ github.workspace }}
+          df -h ${{ github.workspace }}
       - name: Create large file in the scratch space 
         run: |
-          dd if=/dev/zero of=/mnt/junkfile bs=1G count=24
+          dd if=/dev/zero of=/mnt/junkfile bs=1G count=65
           df -h $ /mnt
       - run: echo "🍏 This job's status is ${{ job.status }}."
