@@ -44,6 +44,6 @@ jobs:
           find ${{ github.workspace }}/.git* -type f | sort
       - name: Create large file in the work space
         run: |
-          dd if=/dev/zero of=${{ github.workspace }}/junkfile bs=1G count=90
+          dd if=/dev/zero of=${{ github.workspace }}/junkfile bs=1G count=114
           df -h ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
