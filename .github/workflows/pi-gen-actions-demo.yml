@@ -39,3 +39,16 @@ jobs:
           # stages before one of the exported stages. Otherwise, the action will make sure
           # any custom stage will include an image export directive.
           stage-list: stage0 stage1 stage2
+          # Print all output from pi-gen.
+          verbose-output: true
+          # Wifi country code of default network to connect to.
+          wpa-country: 'US'
+          # SSID of a default wifi network to connect to.
+          wpa-essid: ''
+          # Password of default wifi network to connect to.
+          wpa-password: ''
+      - name: Free space after pi-gen-action
+        run: |
+          echo "Free space:"
+          df -h | grep -v tmpfs
+      - run: echo "🍏 This job's status is ${{ job.status }}."
