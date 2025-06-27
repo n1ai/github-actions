@@ -14,6 +14,7 @@ jobs:
           df -h | grep -v tmpfs
       - name: Build using pi-gen-action
         uses: usimd/pi-gen-action@v1
+        id: build
         with:
           compression: xz
           disable-first-boot-user-rename: 1
@@ -58,17 +59,17 @@ jobs:
           echo "Free space:"
           df -h | grep -v tmpfs
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - name: Contents of deploy area after pi-gen-action
+      - name: Image path after pi-gen-action
         run: |
-          echo "Deploy area:" ${{ inputs.pi-gen-dir }}/deploy
-          ls -lR ${{ inputs.pi-gen-dir }}/deploy
+          echo "Image path:" ${{ steps.build.outputs.image-path }}
+          ls -lR ${{ steps.build.outputs.image-path }} || true
       - name: Upload deploy area as artifact
         uses: actions/upload-artifact@v4
         with:
-          path: ${{ inputs.pi-gen-dir }}/deploy
+          path: ${{ steps.build.outputs.image-path }}
           if-no-files-found: error
           retention-days: 3
           compression-level: 0
           overwrite: true
-          include-hidden-files: true
+          include-hidden-files: true          
       - run: echo "🍏 This job's status is ${{ job.status }}."
